@@ -16,7 +16,7 @@ class InterestRateServiceTest {
 
     @ParameterizedTest
     @CsvSource({
-            // risk, employment, amount, expected rate
+
             "LOW,    SALARIED,      500000,  12.00",
             "MEDIUM, SALARIED,      500000,  13.50",
             "HIGH,   SALARIED,      500000,  15.00",

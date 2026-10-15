@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/** Audit record of a single loan decision; written once and never updated. */
+
 @Entity
 @Table(name = "loan_applications")
 public class LoanApplicationEntity {

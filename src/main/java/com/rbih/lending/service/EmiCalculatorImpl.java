@@ -11,7 +11,6 @@ public class EmiCalculatorImpl implements EmiCalculator {
     private static final int MONTHS_PER_YEAR = 12;
     private static final BigDecimal PERCENT = BigDecimal.valueOf(100);
     private static final int RESULT_SCALE = 2;
-    // Intermediate precision is kept high so that (1+r)^n does not lose cents on long tenures.
     private static final MathContext CALC_PRECISION = new MathContext(20, RoundingMode.HALF_UP);
 
     @Override

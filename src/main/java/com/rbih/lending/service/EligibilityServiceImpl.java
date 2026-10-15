@@ -21,7 +21,6 @@ public class EligibilityServiceImpl implements EligibilityService {
 
     @Override
     public EligibilityResult evaluate(Applicant applicant, Loan loan, BigDecimal emi) {
-        // Every rule runs so the caller gets all rejection reasons, not just the first.
         List<RejectionReason> reasons = rules.stream()
                 .map(rule -> rule.evaluate(applicant, loan, emi))
                 .flatMap(Optional::stream)

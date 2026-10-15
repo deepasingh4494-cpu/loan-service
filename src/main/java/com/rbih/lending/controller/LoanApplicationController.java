@@ -21,7 +21,6 @@ public class LoanApplicationController {
         this.loanApplicationService = loanApplicationService;
     }
 
-    /** Both approved and rejected decisions are stored, so both return 201 Created. */
     @PostMapping
     public ResponseEntity<LoanApplicationResponse> create(@Valid @RequestBody LoanApplicationRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(loanApplicationService.process(request));

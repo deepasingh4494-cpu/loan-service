@@ -52,9 +52,6 @@ public class LoanApplicationServiceImpl implements LoanApplicationService {
         UUID applicationId = UUID.randomUUID();
 
         Optional<RiskBand> riskBand = riskClassificationService.classify(applicant.creditScore());
-
-        // A score below 600 has no band. Affordability is still evaluated so every failing reason is
-        // reported, using the most conservative (HIGH) pricing.
         RiskBand pricingBand = riskBand.orElse(RiskBand.HIGH);
         BigDecimal rate = interestRateService.calculate(pricingBand, applicant.employmentType(), loan.amount());
         BigDecimal emi = emiCalculator.calculate(loan.amount(), rate, loan.tenureMonths());
